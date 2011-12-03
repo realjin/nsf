@@ -63,4 +63,10 @@ ii* load_ii(char* fn);
  *--------------------------*/
 int save_di(di* ind, char* fn);
 di* load_di(char* fn);
+
+/*--------------------------*
+ *    Full index storage    *
+ *--------------------------*/
+int save_fi(fi* ind, char* fnprefix);
+fi* load_fi(char* fnprefix);
 #endif

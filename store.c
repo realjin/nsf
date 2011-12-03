@@ -1,5 +1,8 @@
 #include "store.h"
 
+#define _NSF_DEBUG_ 1
+
+
 //srlz: serialize
 
 static iis_term_header* srlz_iiterm(ii_term* t)
@@ -270,6 +273,54 @@ di* load_di(char* fn)
 	}
 
 	fclose(f);
+
+	return ind;
+}
+
+int save_fi(fi* ind, char* fnprefix)
+{
+	char di_fn[100];
+	char ii_fn[100];
+
+	sprintf(di_fn, "%s.di", fnprefix);
+	sprintf(ii_fn, "%s.ii", fnprefix);
+
+	save_di(ind->d, di_fn);
+	save_ii(ind->i, ii_fn);
+}
+
+fi* load_fi(char* fnprefix)
+{
+	fi* ind;
+	char di_fn[100];
+	char ii_fn[100];
+
+	sprintf(di_fn, "%s.di", fnprefix);
+	sprintf(ii_fn, "%s.ii", fnprefix);
+	
+	ind = (fi*)malloc(sizeof(fi));
+
+#if _NSF_DEBUG_
+	printf("loading di...\n");
+#endif
+	ind->d = load_di(di_fn);
+
+#if _NSF_DEBUG_
+	printf("loading ii...\n");
+#endif
+	ind->i = load_ii(ii_fn);
+
+	ind->docs = (doccol*)malloc(sizeof(doccol));
+	ind->docs->size = ind->d->size;
+#if _NSF_DEBUG_
+	printf("set doccol size ok: %d\n", ind->d->size);
+#endif
+
+	ind->terms = (termcol*)malloc(sizeof(termcol));
+	ind->terms->size = ind->i->size;
+#if _NSF_DEBUG_
+	printf("set termcol size ok: %d\n", ind->i->size);
+#endif
 
 	return ind;
 }

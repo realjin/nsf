@@ -32,3 +32,6 @@ void nsf_sort_doc_term_by_tid(doc_term_alist* dtlist);
 di* nsf_create_di(char* fns[], int n);
 void nsf_load_doc_term(doc_term_alist* dlist, char* fn);
 doc_term_alist* nsf_create_doc_term_list(char* fns[], int n);
+
+//----create fi from nsf file---
+fi* nsf_create_fi(char* fns[], int n);
