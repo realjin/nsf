@@ -1,7 +1,7 @@
 main:
 
 testonly:
-	gcc -w -g -I../../adt -I../indexingbasics -L/opt/lib reader_nsf.c test.c -o test -lindexing
+	gcc -w -g -I../../adt -I../indexingbasics -I../clusteringbasics -L/opt/lib reader_nsf.c test.c -o test -lindexing -lclustering -lm
 
 lib:
 	gcc -w -I../../adt -I../indexingbasics -c -fPIC reader_nsf.c store.c 

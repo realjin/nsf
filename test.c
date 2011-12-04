@@ -1,9 +1,16 @@
 #include "reader_nsf.h"
 #include <index.h>
 #include <docvector.h>
+#include <cluster.h>
+
+//test clustering
+int main()
+{
+	cluster_list_list* cll = create_cluster_list_list();
+}
 
 //test docvector loading
-int main()
+int main6()
 {
 	dv_docs* docs;
 	docs = dv_load_docs("nsf.dv");
