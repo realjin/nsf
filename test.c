@@ -2,20 +2,36 @@
 #include <index.h>
 #include <docvector.h>
 
-//test docvector
+//test docvector loading
 int main()
 {
+	dv_docs* docs;
+	docs = dv_load_docs("nsf.dv");
+	printf("size=%d\n", docs->size);
+}
+//test docvector creation(from fi) and saving
+int main5()
+{
+	
 	fi* ind;
 
 	dv_docs* docs;
 
+	printf("sizeof double=%d\n", sizeof(double));
 
 	ind = load_fi("nsf");
 	
 	printf("dsize=%d\n", ind->docs->size);
+	
+	printf("to create dvlist\n");
 
+	docs = dv_create_dv_from_fi(ind);
 
-	//docs = dv_create_dv_from_fi(ind);
+	printf("dvlist creation complete! size=%d\n", docs->size);
+
+	printf("to save dv\n");
+
+	dv_save_docs(docs, "nsf.dv");
 
 }
 
