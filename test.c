@@ -120,11 +120,11 @@ int main5()
 	docs = dv_create_dv_from_fi(ind);
 
 	printf("dvlist creation complete! size=%d\n", docs->size);
-/*
+
 	printf("to save dv\n");
 
 	dv_save_docs(docs, "nsf.dv");
-	*/
+	
 
 }
 

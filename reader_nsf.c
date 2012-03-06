@@ -197,8 +197,8 @@ fi* nsf_create_fi(char* fns[], int n)
 #endif
 
 	ind = fi_create_fi();
-	ind->docs->size = maxdid;
-	ind->terms->size = maxtid;
+	ind->doccol->docs->size = maxdid;
+	ind->termcol->terms->size = maxtid;
 
 
 	//alloc space for di and ii
