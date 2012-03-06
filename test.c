@@ -113,7 +113,7 @@ int main5()
 
 	ind = load_fi("nsf");
 
-	printf("dsize=%d\n", ind->docs->size);
+	printf("dsize=%d\n", ind->doccol->docs->size);
 
 	printf("to create dvlist\n");
 

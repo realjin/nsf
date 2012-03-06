@@ -206,12 +206,12 @@ fi* nsf_create_fi(char* fns[], int n)
 	for(i=0;i<maxdid;i++)	{
 		d = di_create_doc();
 		d->did = i+1;
-		add_di_doc(ind->d, d);
+		add_di_doc(ind->di, d);
 	}
 	for(i=0;i<maxtid;i++)	{
 		t = ii_create_term();
 		t->tid = i+1;
-		add_ii_term(ind->i, t);
+		add_ii_term(ind->ii, t);
 	}
 
 	//construct di and ii
@@ -230,12 +230,12 @@ fi* nsf_create_fi(char* fns[], int n)
 			//save dterm in di
 			dt->tid = d_t->tid;
 			dt->tf = d_t->tf;
-			add_di_dterm(ind->d->list[d_t->did-1]->terms, dt);
+			add_di_dterm(ind->di->list[d_t->did-1]->terms, dt);
 
 			//save posting in ii
 			pst->did = d_t->did;
 			pst->tf = d_t->tf;
-			add_posting(ind->i->list[d_t->tid-1]->postings, pst);
+			add_posting(ind->ii->list[d_t->tid-1]->postings, pst);
 		}
 
 		fclose(f);
